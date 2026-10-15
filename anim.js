@@ -78,7 +78,7 @@
   });
 
   // Cards entram em sequência
-  ScrollTrigger.batch('.b-card, .phone, .svc-row, .fieldwork figure, .study, .item', {
+  ScrollTrigger.batch('.b-card, .phone, .svc-row, .mosaic figure, .study, .item', {
     start: 'top 88%', once: true,
     onEnter: (els) => gsap.fromTo(els, { y: 36, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .9, ease: 'power3.out', stagger: .08, overwrite: true }),
   });
