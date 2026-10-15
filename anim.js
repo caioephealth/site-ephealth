@@ -117,6 +117,29 @@
     return () => steps.forEach((s) => s.classList.add('on'));
   });
 
+  // epScience: o celular troca de tela conforme a rolagem
+  mm.add('(min-width: 1001px)', () => {
+    const stage = document.querySelector('.sci3-stage');
+    if (!stage) return;
+    const steps = stage.querySelectorAll('.sci3-steps li');
+    const scrs = stage.querySelectorAll('.scr img');
+    const groups = stage.querySelectorAll('.fc-group');
+    const n = steps.length;
+    let cur = -1;
+    const set = (i) => {
+      if (i === cur) return; cur = i;
+      steps.forEach((s, k) => s.classList.toggle('on', k === i));
+      scrs.forEach((s, k) => s.classList.toggle('on', k === i));
+      groups.forEach((s, k) => s.classList.toggle('on', k === i));
+    };
+    set(0);
+    ScrollTrigger.create({
+      trigger: stage, start: 'top top', end: `+=${n * 60}%`, pin: true,
+      onUpdate: (self) => set(Math.min(n - 1, Math.floor(self.progress * n * 0.999))),
+    });
+    gsap.from('.phone3', { y: 80, rotate: -4, autoAlpha: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: stage, start: 'top 75%', once: true } });
+  });
+
   // Soluções: imagem que acompanha o mouse
   const fl = document.querySelector('.svc-float');
   if (fl && window.matchMedia('(hover: hover) and (min-width: 901px)').matches) {

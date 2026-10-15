@@ -202,47 +202,57 @@
   </div>
 </section>
 
-<section class="sec sci2" aria-labelledby="sci-t">
-  <div class="wrap">
-    <div class="sci2-top">
-      <div class="rv">
-        <span class="eyebrow">epScience</span>
-        <h2 class="h2" id="sci-t">O estudo clínico inteiro na palma da mão</h2>
-        <p class="lead" style="margin:16px 0 24px">Pacientes, sites de pesquisa e centro coordenador no mesmo aplicativo — usado no ensaio SAPPHIRE-LDL, com 1.465 pacientes em 28 clínicas.</p>
-        <ul class="chk"><li>eCRF de todas as visitas</li><li>SDV e queries no celular</li><li>eConsent e reconsentimento</li><li>Notificações automáticas</li></ul>
-        <div class="btns" style="margin-top:28px"><a class="btn" href="epscience.html">Conheça o epScience</a></div>
+<section class="sci3" id="epscience-home" aria-labelledby="sci-t">
+  <div class="sci3-glow" aria-hidden="true"></div>
+  <div class="wrap sci3-head rv">
+    <span class="eyebrow">epScience</span>
+    <h2 class="h2" id="sci-t">Um aplicativo. <span class="grad">Todo o estudo clínico.</span></h2>
+    <p class="lead">Paciente, investigador, monitor e coordenação conectados em tempo real — a plataforma usada no ensaio SAPPHIRE-LDL, com 1.465 pacientes em 28 clínicas.</p>
+  </div>
+  <div class="wrap sci3-stage">
+    <ol class="sci3-steps">
+      <li class="on" data-i="0"><span class="k">01 · Paciente</span><b>Acompanhado de casa</b><p>Resumo da própria saúde, como o último LDL em um medidor, chat com a equipe e eConsent no celular.</p><img class="m" src="img/tela-sdv-resumo.webp" alt="Resumo do paciente com o último LDL" loading="lazy"></li>
+      <li data-i="1"><span class="k">02 · Investigador</span><b>SDV sem papel</b><p>Cada campo do eCRF conferido com o documento fonte e marcado direto na visita.</p><img class="m" src="img/tela-sdv-eleg.webp" alt="Verificação de dados de elegibilidade" loading="lazy"></li>
+      <li data-i="2"><span class="k">03 · Monitor</span><b>Queries em um toque</b><p>A divergência vira uma query no próprio campo, com resposta e histórico no mesmo lugar.</p><img class="m" src="img/tela-sdv-query.webp" alt="Abertura de query" loading="lazy"></li>
+      <li data-i="3"><span class="k">04 · Coordenação</span><b>Todos os centros em uma visão</b><p>Inclusão, visitas concluídas e pendências por centro, em tempo real.</p><img class="m" src="img/tela-indicadores.webp" alt="Indicadores de inclusão por centro" loading="lazy"></li>
+    </ol>
+    <div class="sci3-device" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div>
+      <div class="phone3">
+        <div class="notch"></div>
+        <div class="scr">
+          <img class="on" src="img/tela-sdv-resumo.webp" alt="">
+          <img src="img/tela-sdv-eleg.webp" alt="">
+          <img src="img/tela-sdv-query.webp" alt="">
+          <img src="img/tela-indicadores.webp" alt="">
+        </div>
       </div>
-      <div class="sci2-pic rv">
-        <img class="main" src="img/mock-mao.webp" alt="Mão segurando celular com a tela inicial do epScience" loading="lazy" width="1100" height="1467">
+      <div class="fc-group on" data-i="0">
+        <div class="fc fc-l"><span class="fc-k">Último LDL</span><div class="gauge"><svg viewBox="0 0 120 64"><path d="M10 60a50 50 0 0 1 100 0" fill="none" stroke="#EDEEF4" stroke-width="12" stroke-linecap="round"/><path class="g-arc" d="M10 60a50 50 0 0 1 100 0" fill="none" stroke="url(#gg)" stroke-width="12" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="38"/><defs><linearGradient id="gg"><stop offset="0" stop-color="#3E9D69"/><stop offset=".55" stop-color="#E9B949"/><stop offset="1" stop-color="#E77DB3"/></linearGradient></defs></svg><b>64<small> mg/dL</small></b></div></div>
+        <div class="fc fc-r"><span class="ic" style="background:#2E4BC6">✓</span><div><b>eConsent assinado</b><span>Termo v3 · agora</span></div></div>
+      </div>
+      <div class="fc-group" data-i="1">
+        <div class="fc fc-l"><span class="ic" style="background:#2F8F5B">✓</span><div><b>SDV verificado</b><span>Data de nascimento</span></div></div>
+        <div class="fc fc-r"><span class="fc-k">Ficha de elegibilidade</span><div class="bar"><i style="width:72%;background:#2E4BC6"></i></div><span class="fc-s">18 de 25 campos conferidos</span></div>
+      </div>
+      <div class="fc-group" data-i="2">
+        <div class="fc fc-l"><span class="tg pink"><span class="d0"></span>Query aberta</span><b style="display:block;margin-top:8px">Paciente AAA</b><span class="fc-s">Campo: data de nascimento</span></div>
+        <div class="fc fc-r"><span class="ic" style="background:#C2479A">↩</span><div><b>Resposta do centro</b><span>Valor corrigido · 2 min</span></div></div>
+      </div>
+      <div class="fc-group" data-i="3">
+        <div class="fc fc-l"><span class="fc-k">Visitas do estudo</span><div class="bar"><i style="width:55%;background:#3E9D69"></i><i style="width:30%;background:#E9B949"></i><i style="width:15%;background:#E77DB3"></i></div><span class="fc-s">55% concluídas · 30% parciais</span></div>
+        <div class="fc fc-r"><span class="ic" style="background:#2E4BC6">◎</span><div><b>Centros ativos</b><span>Monitoramento em tempo real</span></div></div>
       </div>
     </div>
   </div>
-</section>
-
-<section class="sec sci2-tabs" aria-label="Telas do epScience por perfil">
-  <div class="wrap">
-    <div class="tabs2-wrap">
-      <div class="tabs2" role="tablist" aria-label="Quem usa o epScience">
-        <button role="tab" aria-selected="true" aria-controls="tab-paciente" id="t-paciente">Paciente</button>
-        <button role="tab" aria-selected="false" aria-controls="tab-pesquisador" id="t-pesquisador">Pesquisador</button>
-        <button role="tab" aria-selected="false" aria-controls="tab-coordenacao" id="t-coordenacao">Coordenação</button>
-      </div>
+  <div class="wrap sci3-foot rv">
+    <div class="sci3-stats">
+      <div><b data-count="1465">1.465</b><span>pacientes no SAPPHIRE-LDL</span></div>
+      <div><b data-count="28">28</b><span>clínicas conectadas</span></div>
+      <div><b data-count="8">8</b><span>módulos integrados</span></div>
+      <div><b>JAMA</b><span>Cardiology, 2026</span></div>
     </div>
-    <div class="phones" id="tab-paciente" role="tabpanel" aria-labelledby="t-paciente">
-      <div class="phone"><div class="frame"><img src="img/tela-sdv-resumo.webp" alt="Resumo do paciente com o último LDL" loading="lazy"></div><p><b>Resumo da saúde</b>O último LDL em um medidor fácil de entender.</p></div>
-      <div class="phone"><div class="frame"><img src="img/tela-chat2.webp" alt="Chat entre paciente e equipe" loading="lazy"></div><p><b>Chat com a equipe</b>Conversa segura com o centro de pesquisa.</p></div>
-      <div class="phone"><div class="frame"><img src="img/tela-p06-econsent.webp" alt="Tela de consentimento eletrônico" loading="lazy"></div><p><b>eConsent</b>Termo assinado no celular.</p></div>
-    </div>
-    <div class="phones" id="tab-pesquisador" role="tabpanel" aria-labelledby="t-pesquisador" hidden>
-      <div class="phone"><div class="frame"><img src="img/tela-pi-pesquisador.webp" alt="Pontos de atenção do pesquisador" loading="lazy"></div><p><b>Pontos de atenção</b>Adesão e fichas pendentes em destaque.</p></div>
-      <div class="phone"><div class="frame"><img src="img/tela-sdv-eleg.webp" alt="Verificação de dados de elegibilidade" loading="lazy"></div><p><b>SDV no celular</b>Cada campo conferido com o documento fonte.</p></div>
-      <div class="phone"><div class="frame"><img src="img/tela-algoritmo.webp" alt="Sugestão de medicamento" loading="lazy"></div><p><b>Algoritmo de intervenção</b>Conduta sugerida passo a passo.</p></div>
-    </div>
-    <div class="phones" id="tab-coordenacao" role="tabpanel" aria-labelledby="t-coordenacao" hidden>
-      <div class="phone"><div class="frame"><img src="img/tela-indicadores.webp" alt="Indicadores de inclusão por centro" loading="lazy"></div><p><b>Indicadores</b>Inclusão por centro em tempo real.</p></div>
-      <div class="phone"><div class="frame"><img src="img/tela-mon-crf.webp" alt="Status das visitas por participante" loading="lazy"></div><p><b>Status das visitas</b>Atrasos e pendências em um olhar.</p></div>
-      <div class="phone"><div class="frame"><img src="img/tela-sdv-query.webp" alt="Abertura de query" loading="lazy"></div><p><b>Queries</b>Divergência resolvida sem papel.</p></div>
-    </div>
+    <div class="btns"><a class="btn white" href="epscience.html">Conheça o epScience</a><a class="btn glass" href="?assunto=epscience#contato">Agende uma demonstração</a></div>
   </div>
 </section>
 
