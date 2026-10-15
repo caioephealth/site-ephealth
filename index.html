@@ -17,11 +17,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="inicio">
+<body data-page="inicio" data-hero="dark">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="epHealth — início"><img src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"></a>
+    <a class="logo" href="index.html" aria-label="epHealth — início"><img class="c" src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"><img class="w" src="img/logo-ephealth-branco.svg" alt="epHealth" width="126" height="36"></a>
     <nav aria-label="Principal"><a href="index.html#solucoes">Soluções</a><a href="epscience.html">epScience</a><a href="index.html#ciencia">Ciência</a><a href="insights.html">Primary Care Insights</a><a href="sobre.html">Sobre nós</a><a href="equipe.html">Equipe</a><a href="https://www.novo.institutoephealth.org" target="_blank" rel="noopener">Saúde Pública ↗</a></nav>
     <a class="btn" href="#contato">Fale conosco</a>
     <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular"><span></span></button>
@@ -32,106 +32,218 @@
   <a class="btn" href="#contato">Fale conosco</a>
 </nav>
 <main id="conteudo">
-<section class="hero">
-  <div class="wrap">
-    <div class="txt rv">
-      
-      <h1>Inteligência aplicada à <strong>saúde de grandes populações</strong>.</h1>
-      <p class="lead">Da visita do agente comunitário à evidência científica: dados de mundo real, estudos clínicos digitais e campanhas em escala nacional.</p>
-      <div class="btns"><a class="btn" href="#contato">Fale conosco</a><a class="btn line" href="epscience.html">Conheça o epScience</a></div>
-    </div>
-    <div class="pic rv">
-      <img src="img/campo-visita-tablet.webp" alt="Agente comunitária de saúde registra dados no tablet durante visita domiciliar" width="1800" height="1013" fetchpriority="high">
-      <div class="badge"><b>184 mi</b><span>pacientes ativos na atenção primária brasileira</span></div>
-    </div>
+
+<section class="vhero" aria-labelledby="hero-t">
+  <video class="vhero-bg" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.webp" aria-hidden="true">
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="vhero-shade"></div>
+  <div class="wrap vhero-in">
+    <span class="kicker"><span class="dot"></span>Dados de mundo real · Estudos clínicos · Campanhas</span>
+    <h1 class="vhero-title" id="hero-t"><span class="line"><span>Inteligência aplicada</span></span><span class="line"><span>à saúde de</span></span><span class="line"><span><em>grandes populações.</em></span></span></h1>
+    <p class="vhero-lead">Da visita do agente comunitário à evidência científica: transformamos a atenção primária brasileira em dados que cuidam.</p>
+    <div class="btns"><a class="btn white" href="#contato">Fale conosco</a><a class="btn glass" href="epscience.html">Conheça o epScience</a></div>
   </div>
+  <div class="wrap">
+    <div class="vhero-stats">
+      <div class="vstat"><b data-count="12.4" data-dec="1" data-suf=" bi">12,4 bi</b><span>registros da atenção primária</span></div>
+      <div class="vstat"><b data-count="184" data-suf=" mi">184 mi</b><span>pacientes ativos</span></div>
+      <div class="vstat"><b data-count="27">27</b><span>unidades federativas</span></div>
+      <div class="vstat"><b data-count="41.9" data-dec="1" data-suf="%">41,9%</b><span>dos registros são visitas domiciliares</span></div>
+    </div>
+    <p class="src">Fonte: <a href="https://doi.org/10.64898/2026.07.01.26356080" target="_blank" rel="noopener">medRxiv, 2026</a> — dados do SISAB, 2013 a 2026.</p>
+  </div>
+  <a class="scroll-cue" href="#nomes" aria-label="Rolar para baixo"><span></span></a>
 </section>
 
-<section class="sec" aria-labelledby="num-t">
+<section class="marquee" id="nomes" aria-label="Onde publicamos e apresentamos">
+  <p>Publicado e apresentado em</p>
+  <div class="mq" aria-hidden="true"><span>JAMA Cardiology</span><span>The Lancet Regional Health – Americas</span><span>Stroke · AHA Journals</span><span>American Heart Journal</span><span>Value in Health · ISPOR</span><span>medRxiv</span><span>Universidade de Cambridge</span><span>Congresso Europeu de Cardiologia</span><span>Congresso Americano de Cardiologia</span><span>ClinicalTrials.gov</span><span>Plataforma Brasil · CEP/CONEP</span><span>JAMA Cardiology</span><span>The Lancet Regional Health – Americas</span><span>Stroke · AHA Journals</span><span>American Heart Journal</span><span>Value in Health · ISPOR</span><span>medRxiv</span><span>Universidade de Cambridge</span><span>Congresso Europeu de Cardiologia</span><span>Congresso Americano de Cardiologia</span><span>ClinicalTrials.gov</span><span>Plataforma Brasil · CEP/CONEP</span></div>
+</section>
+
+<section class="sec" aria-labelledby="bt-t">
   <div class="wrap">
-    <div class="sec-head rv"><div><span class="eyebrow">A atenção primária em dados</span><h2 class="h2"><span id="num-t">12 anos de registros que viram evidência</span></h2></div></div>
-    <div class="stats">
-      <div class="stat rv"><b>12,4 bi</b><span>registros da atenção primária, de 2013 a 2026</span></div>
-      <div class="stat rv"><b>184 mi</b><span>pacientes ativos acompanhados</span></div>
-      <div class="stat rv"><b>27</b><span>unidades federativas na base</span></div>
-      <div class="stat rv"><b>41,9%</b><span>dos registros são visitas domiciliares, a maioria feita por agentes comunitários</span></div>
+    <div class="sec-head rv"><div><span class="eyebrow">A atenção primária em dados</span><h2 class="h2"><span id="bt-t">A atenção primária como você nunca viu</span></h2><p class="lead">Ciência, tecnologia e campanhas que partem do mesmo lugar: o cuidado de todos os dias no SUS.</p></div></div>
+    <div class="bento">
+      <article class="b-card tall">
+        <div class="ui"><div class="ui-dark">
+          <div class="row"><span class="ic" style="background:#2E4BC6">▤</span><div><b data-count="12.4" data-dec="1" data-suf=" bilhões">12,4 bilhões</b><span>registros da atenção primária</span></div></div>
+          <div class="row"><span class="ic" style="background:#C2479A">●</span><div><b data-count="184" data-suf=" milhões">184 milhões</b><span>pacientes ativos</span></div></div>
+          <div class="row"><span class="ic" style="background:#2F8F5B">✓</span><div><b>27 UFs</b><span>todo o Brasil na base</span></div></div>
+        </div></div>
+        <p class="t">Evidência de mundo real</p>
+        <p class="d">Estudos com dados do dia a dia do SUS para apoiar políticas públicas e decisões clínicas.</p>
+      </article>
+      <article class="b-card tall">
+        <div class="ui">
+          <div class="ui-white">
+            <div class="ui-head"><span>Paciente 0010009</span><span class="tg pink"><span class="d0"></span>Query aberta</span></div>
+            <div class="ui-field"><span>Campo</span><b>Data de nascimento</b></div>
+            <div class="ui-field"><span>Valor</span><b>01/02/2000</b></div>
+          </div>
+          <div class="ui-white">
+            <div class="ui-head"><span>Visitas do estudo</span><b style="color:var(--navy)">55% concluídas</b></div>
+            <div class="bar"><i data-w="55%" style="background:#3E9D69"></i><i data-w="30%" style="background:#E9B949"></i><i data-w="15%" style="background:#E77DB3"></i></div>
+          </div>
+        </div>
+        <p class="t">Estudos clínicos digitais</p>
+        <p class="d">Do recrutamento ao fechamento, com queries e SDV direto no celular.</p>
+      </article>
+      <article class="b-card tall">
+        <div class="ui">
+          <div class="toast"><span class="ic" style="background:#2E4BC6">ep</span><div><b>Campanha no ar</b><span>Vacinação — alcance nacional</span></div></div>
+          <div class="toast"><span class="ic" style="background:#C2479A">ep</span><div><b>Novo conteúdo</b><span>Educação em saúde para a população</span></div></div>
+          <div class="toast"><span class="ic" style="background:#8D95C7">ep</span><div><b>Campanha concluída</b><span>Relatório de alcance disponível</span></div></div>
+        </div>
+        <p class="t">Campanhas de conscientização</p>
+        <p class="d">Comunicação digital em escala nacional sobre vacinas, doenças raras, câncer de mama e mais.</p>
+      </article>
+      <article class="b-card short">
+        <div class="ui"><p class="big-n"><span data-count="1465">1.465</span></p></div>
+        <p class="t">Pacientes no SAPPHIRE-LDL</p>
+        <p class="d">Ensaio em 28 clínicas, publicado na JAMA Cardiology (2026).</p>
+      </article>
+      <article class="b-card short">
+        <div class="ui"><span class="tg green" style="font-size:14px;padding:6px 12px"><span class="d0"></span>Aprovado pelo CEP/CONEP</span></div>
+        <p class="t">Ética</p>
+        <p class="d">Estudos aprovados por comitês de ética e registrados no ClinicalTrials.gov.</p>
+      </article>
+      <article class="b-card short">
+        <div class="ui chipz"><span>JAMA Cardiology</span><span>The Lancet RH</span><span>Stroke</span></div>
+        <p class="t">Ciência</p>
+        <p class="d">Resultados publicados em revistas internacionais.</p>
+      </article>
     </div>
-    <p class="source">Fonte: <a href="https://doi.org/10.64898/2026.07.01.26356080" target="_blank" rel="noopener">The Rise of Brazil's Primary Care Digitalization</a> (medRxiv, 2026), com dados do SISAB.</p>
   </div>
 </section>
 
 <section class="sec soft" id="solucoes" aria-labelledby="sol-t">
   <div class="wrap">
-    <div class="sec-head rv"><div><span class="eyebrow">Soluções</span><h2 class="h2"><span id="sol-t">Muito além da tecnologia</span></h2><p class="lead">Cinco frentes que se somam — do desenho do estudo à captura do dado, da campanha nacional à consultoria.</p></div><a class="more" href="#contato">Fale com o time <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-    <div class="cards c5"><a class="card rv" href="#contato"><div class="img"><img src="img/frente-rwe.webp" alt="" loading="lazy" width="1600" height="2133"></div>
-      <span class="tag">RWE</span><p class="h3">Real-World Evidence</p><p>Estudos de mundo real para apoiar políticas públicas, decisões clínicas e estratégias em saúde.</p><span class="more">Saiba mais <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-<a class="card rv" href="#contato"><div class="img"><img src="img/frente-dhi.webp" alt="" loading="lazy" width="1600" height="2133"></div>
-      <span class="tag">DHI</span><p class="h3">Intervenções digitais</p><p>Jornadas digitais que ampliam o acesso, aceleram diagnósticos e fortalecem a equidade.</p><span class="more">Saiba mais <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-<a class="card rv" href="#contato"><div class="img"><img src="img/frente-dac.webp" alt="" loading="lazy" width="1600" height="2133"></div>
-      <span class="tag">DAC</span><p class="h3">Campanhas de conscientização</p><p>Campanhas digitais com alcance nacional para educação em saúde da população.</p><span class="more">Saiba mais <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-<a class="card rv" href="#contato"><div class="img"><img src="img/frente-edc.webp" alt="" loading="lazy" width="1600" height="2133"></div>
-      <span class="tag">EDC</span><p class="h3">Captura eletrônica de dados</p><p>Plataforma para estudos clínicos com agilidade, qualidade e conformidade regulatória.</p><span class="more">Saiba mais <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-<a class="card rv" href="#contato"><div class="img"><img src="img/frente-consultoria.webp" alt="" loading="lazy" width="1600" height="2133"></div>
-      <span class="tag">Consultoria</span><p class="h3">Consultoria especializada</p><p>Médicos-pesquisadores, desenvolvedores e gestores com experiência em saúde pública.</p><span class="more">Saiba mais <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+    <div class="sec-head rv"><div><span class="eyebrow">Soluções</span><h2 class="h2"><span id="sol-t">Muito além da tecnologia</span></h2><p class="lead">Cinco frentes que se somam — passe o mouse ou toque para conhecer cada uma.</p></div><a class="more" href="#contato">Fale com o time <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    <div class="xpand"><article class="xp on" tabindex="0" aria-expanded="true">
+      <img src="img/frente-rwe.webp" alt="" loading="lazy" width="1600" height="2133">
+      <div class="xp-in"><span class="tg">RWE</span><h3>Real-World Evidence</h3><p>Estudos de mundo real para apoiar políticas públicas, decisões clínicas e estratégias em saúde.</p><a class="more" href="#contato">Fale com o time <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </article>
+<article class="xp" tabindex="0" aria-expanded="false">
+      <img src="img/frente-dhi.webp" alt="" loading="lazy" width="1600" height="2133">
+      <div class="xp-in"><span class="tg">DHI</span><h3>Intervenções digitais</h3><p>Jornadas digitais que ampliam o acesso, aceleram diagnósticos e fortalecem a equidade.</p><a class="more" href="#contato">Fale com o time <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </article>
+<article class="xp" tabindex="0" aria-expanded="false">
+      <img src="img/frente-dac.webp" alt="" loading="lazy" width="1600" height="2133">
+      <div class="xp-in"><span class="tg">DAC</span><h3>Campanhas de conscientização</h3><p>Campanhas digitais com alcance nacional para educação em saúde da população.</p><a class="more" href="#contato">Fale com o time <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </article>
+<article class="xp" tabindex="0" aria-expanded="false">
+      <img src="img/frente-edc.webp" alt="" loading="lazy" width="1600" height="2133">
+      <div class="xp-in"><span class="tg">EDC</span><h3>Captura eletrônica de dados</h3><p>Plataforma para estudos clínicos com agilidade, qualidade e conformidade regulatória.</p><a class="more" href="#contato">Fale com o time <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </article>
+<article class="xp" tabindex="0" aria-expanded="false">
+      <img src="img/frente-consultoria.webp" alt="" loading="lazy" width="1600" height="2133">
+      <div class="xp-in"><span class="tg">Consultoria</span><h3>Consultoria especializada</h3><p>Médicos-pesquisadores, desenvolvedores e gestores com experiência em saúde pública.</p><a class="more" href="#contato">Fale com o time <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </article></div>
   </div>
 </section>
 
-<section class="sec" aria-labelledby="campo-t">
-  <div class="wrap feature">
-    <div class="pic rv"><img src="img/campo-porta.webp" alt="Agente comunitária de saúde ao lado de uma moradora na porta de casa" loading="lazy" width="1800" height="1013"></div>
-    <div class="txt rv">
-      <span class="eyebrow" style="margin:0">Do território à evidência</span>
-      <h2 class="h2" id="campo-t">O dado nasce em cada visita domiciliar</h2>
-      <p class="lead">Trabalhamos lado a lado com os agentes comunitários de saúde, que conhecem cada família do território. É a partir desse trabalho que a informação ganha qualidade e escala.</p>
-      <ul class="checks">
-        <li><div><b>Cadastro qualificado</b><span>Bases municipais corrigidas e atualizadas com apoio digital.</span></div></li>
-        <li><div><b>Acompanhamento contínuo</b><span>Linhas de cuidado como hipertensão e diabetes monitoradas no território.</span></div></li>
-        <li><div><b>Ciência com ética</b><span>Estudos aprovados pelo sistema CEP/CONEP.</span></div></li>
-      </ul>
-      <div><a class="more" href="https://www.novo.institutoephealth.org" target="_blank" rel="noopener">Conheça a atuação em saúde pública <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+<section class="story" id="territorio" aria-labelledby="st-t">
+  <div class="wrap story-in">
+    <div>
+      <span class="eyebrow">Do território à evidência</span>
+      <h2 class="h2" id="st-t">O dado nasce em cada visita domiciliar</h2>
+      <ol class="story-steps"><li data-cap="Visita domiciliar com registro digital"><b><small>01</small>Visita domiciliar</b><p>O agente comunitário registra a visita no tablet, na casa de cada família.</p><img class="m" src="img/campo-visita-tablet.webp" alt="Agente comunitária registra a visita no tablet" loading="lazy"></li>
+<li data-cap="Aplicativo da epHealth em campo"><b><small>02</small>Cadastro qualificado</b><p>Bases municipais corrigidas e atualizadas com apoio digital, sem retrabalho.</p><img class="m" src="img/campo-tablet-ephealth.webp" alt="Tablet com o aplicativo da epHealth" loading="lazy"></li>
+<li data-cap="Linha de cuidado no dia a dia"><b><small>03</small>Cuidado acompanhado</b><p>Hipertensão e diabetes monitoradas de perto, inclusive dentro de casa.</p><img class="m" src="img/foto-pressao.webp" alt="Senhora medindo a pressão arterial em casa" loading="lazy"></li>
+<li data-cap="Dados que viram ciência"><b><small>04</small>Evidência</b><p>Dados de mundo real que viram estudos, publicações e decisões em saúde.</p><img class="m" src="img/foto-coordenacao.webp" alt="Equipe analisando painéis de dados em monitores" loading="lazy"></li></ol>
+    </div>
+    <div class="story-media">
+      <div class="prog"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+      <img src="img/campo-visita-tablet.webp" alt="Agente comunitária registra a visita no tablet" loading="lazy" width="1800" height="1200">
+<img src="img/campo-tablet-ephealth.webp" alt="Tablet com o aplicativo da epHealth" loading="lazy" width="1800" height="1200">
+<img src="img/foto-pressao.webp" alt="Senhora medindo a pressão arterial em casa" loading="lazy" width="1800" height="1200">
+<img src="img/foto-coordenacao.webp" alt="Equipe analisando painéis de dados em monitores" loading="lazy" width="1800" height="1200">
+      <div class="cap"><span class="tg green"><span class="d0"></span>Em campo</span><span></span></div>
     </div>
   </div>
 </section>
 
-<section class="sec tight" aria-label="Fotos de campo">
+<section class="sec field" aria-labelledby="fd-t">
   <div class="wrap">
-    <div class="gallery rv">
-      <figure><img src="img/campo-moto.webp" alt="Agente comunitário de moto a caminho de uma visita" loading="lazy"><figcaption>A caminho da visita</figcaption></figure>
-      <figure><img src="img/campo-barco.webp" alt="Equipe chegando de barco a uma comunidade ribeirinha" loading="lazy"><figcaption>Comunidades ribeirinhas</figcaption></figure>
-      <figure><img src="img/campo-sertao.webp" alt="Casa de taipa no sertão" loading="lazy"><figcaption>Sertão</figcaption></figure>
-      <figure><img src="img/campo-capacitacao.webp" alt="Agentes comunitários em uma capacitação" loading="lazy"><figcaption>Capacitação de agentes</figcaption></figure>
-      <figure><img src="img/campo-app.webp" alt="Agente usando o aplicativo no celular" loading="lazy"><figcaption>Tecnologia na palma da mão</figcaption></figure>
+    <div class="field-head rv">
+      <span class="eyebrow">Brasil real</span>
+      <h2 class="h2" id="fd-t">Do sertão às comunidades ribeirinhas</h2>
+      <p class="lead">Onde a saúde pública acontece, a tecnologia precisa chegar. Fotos reais de equipes em campo.</p>
     </div>
+    <div class="field-grid">
+      <div class="field-col" data-speed="1">
+        <figure class="t"><img src="img/campo-moto.webp" alt="Agente comunitário de moto a caminho de uma visita" loading="lazy"><figcaption>A caminho da visita</figcaption></figure>
+        <figure class="w"><img src="img/campo-capacitacao.webp" alt="Agentes comunitários em uma capacitação" loading="lazy"><figcaption>Capacitação de agentes</figcaption></figure>
+      </div>
+      <div class="field-col" data-speed="-1.4">
+        <figure class="w"><img src="img/campo-barco.webp" alt="Equipe chegando de barco a uma comunidade ribeirinha" loading="lazy"><figcaption>Comunidades ribeirinhas</figcaption></figure>
+        <figure class="t"><img src="img/campo-porta.webp" alt="Agente comunitária ao lado de uma moradora na porta de casa" loading="lazy"><figcaption>Vínculo com cada família</figcaption></figure>
+        <figure class="w"><img src="img/campo-app.webp" alt="Agente usando o aplicativo no celular" loading="lazy"><figcaption>Tecnologia na palma da mão</figcaption></figure>
+      </div>
+      <div class="field-col" data-speed="2">
+        <figure class="t"><img src="img/campo-sertao.webp" alt="Casa de taipa no sertão" loading="lazy"><figcaption>Sertão</figcaption></figure>
+        <figure class="w"><img src="img/campo-grupo.webp" alt="Equipe reunida com agentes comunitários" loading="lazy"><figcaption>Juntos no território</figcaption></figure>
+      </div>
+    </div>
+    <p class="foot-link"><a class="more" href="https://www.novo.institutoephealth.org" target="_blank" rel="noopener">Conheça a atuação em saúde pública <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
   </div>
 </section>
 
-<section class="sec soft" aria-labelledby="sci-t">
-  <div class="wrap feature rev">
-    <div class="pic phone rv"><img src="img/epscience-phone.webp" alt="Aplicativo epScience aberto em dois celulares" loading="lazy" width="1000" height="1092"></div>
-    <div class="txt rv">
-      <span class="eyebrow" style="margin:0">epScience</span>
-      <h2 class="h2" id="sci-t">Uma plataforma para todo o estudo clínico</h2>
-      <p class="lead">Pacientes, centros de pesquisa e coordenação integrados em um só ambiente, com notificações automáticas para cada atividade crítica.</p>
-      <ul class="checks">
-        <li><div><b>Centro coordenador</b><span>Monitoramento remoto em tempo real, queries e SDV.</span></div></li>
-        <li><div><b>Sites participantes</b><span>Telehealth, chat, medicamentos e eCRF.</span></div></li>
-        <li><div><b>Engajamento do paciente</b><span>Online e presencial, eConsent e vídeo educativo.</span></div></li>
-      </ul>
-      <div class="btns"><a class="btn" href="epscience.html">Conheça o epScience</a></div>
+<section class="sec sci2" aria-labelledby="sci-t">
+  <div class="wrap">
+    <div class="sci2-top">
+      <div class="rv">
+        <span class="eyebrow">epScience</span>
+        <h2 class="h2" id="sci-t">O estudo clínico inteiro na palma da mão</h2>
+        <p class="lead" style="margin:16px 0 24px">Pacientes, sites de pesquisa e centro coordenador no mesmo aplicativo — usado no ensaio SAPPHIRE-LDL, com 1.465 pacientes em 28 clínicas.</p>
+        <ul class="chk"><li>eCRF de todas as visitas</li><li>SDV e queries no celular</li><li>eConsent e reconsentimento</li><li>Notificações automáticas</li></ul>
+        <div class="btns" style="margin-top:28px"><a class="btn" href="epscience.html">Conheça o epScience</a></div>
+      </div>
+      <div class="sci2-pic rv">
+        <img class="main" src="img/mock-mao.webp" alt="Mão segurando celular com a tela inicial do epScience" loading="lazy" width="1100" height="1467">
+        <img class="float f1 floaty" src="img/mock-flutuante.webp" alt="" loading="lazy">
+        <img class="float f2 floaty" src="img/obj-capsula.webp" alt="" loading="lazy" style="animation-delay:-4s">
+      </div>
+    </div>
+    <div class="tabs2-wrap">
+      <div class="tabs2" role="tablist" aria-label="Quem usa o epScience">
+        <button role="tab" aria-selected="true" aria-controls="tab-paciente" id="t-paciente">Paciente</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-pesquisador" id="t-pesquisador">Pesquisador</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-coordenacao" id="t-coordenacao">Coordenação</button>
+      </div>
+    </div>
+    <div class="phones" id="tab-paciente" role="tabpanel" aria-labelledby="t-paciente">
+      <div class="phone"><div class="frame"><img src="img/tela-sdv-resumo.webp" alt="Resumo do paciente com o último LDL" loading="lazy"></div><p><b>Resumo da saúde</b>O último LDL em um medidor fácil de entender.</p></div>
+      <div class="phone"><div class="frame"><img src="img/tela-chat2.webp" alt="Chat entre paciente e equipe" loading="lazy"></div><p><b>Chat com a equipe</b>Conversa segura com o centro de pesquisa.</p></div>
+      <div class="phone"><div class="frame"><img src="img/tela-p06-econsent.webp" alt="Tela de consentimento eletrônico" loading="lazy"></div><p><b>eConsent</b>Termo assinado no celular.</p></div>
+    </div>
+    <div class="phones" id="tab-pesquisador" role="tabpanel" aria-labelledby="t-pesquisador" hidden>
+      <div class="phone"><div class="frame"><img src="img/tela-pi-pesquisador.webp" alt="Pontos de atenção do pesquisador" loading="lazy"></div><p><b>Pontos de atenção</b>Adesão e fichas pendentes em destaque.</p></div>
+      <div class="phone"><div class="frame"><img src="img/tela-sdv-eleg.webp" alt="Verificação de dados de elegibilidade" loading="lazy"></div><p><b>SDV no celular</b>Cada campo conferido com o documento fonte.</p></div>
+      <div class="phone"><div class="frame"><img src="img/tela-algoritmo.webp" alt="Sugestão de medicamento" loading="lazy"></div><p><b>Algoritmo de intervenção</b>Conduta sugerida passo a passo.</p></div>
+    </div>
+    <div class="phones" id="tab-coordenacao" role="tabpanel" aria-labelledby="t-coordenacao" hidden>
+      <div class="phone"><div class="frame"><img src="img/tela-indicadores.webp" alt="Indicadores de inclusão por centro" loading="lazy"></div><p><b>Indicadores</b>Inclusão por centro em tempo real.</p></div>
+      <div class="phone"><div class="frame"><img src="img/tela-mon-crf.webp" alt="Status das visitas por participante" loading="lazy"></div><p><b>Status das visitas</b>Atrasos e pendências em um olhar.</p></div>
+      <div class="phone"><div class="frame"><img src="img/tela-sdv-query.webp" alt="Abertura de query" loading="lazy"></div><p><b>Queries</b>Divergência resolvida sem papel.</p></div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="ciencia" aria-labelledby="pub-t">
   <div class="wrap">
-    <div class="sec-head rv"><div><span class="eyebrow">Ciência</span><h2 class="h2" id="pub-t">Publicações</h2><p class="lead">Produção científica com alcance internacional e impacto na saúde pública.</p></div>
-      <div class="filters" role="group" aria-label="Filtrar publicações">
-        <button class="filter on" data-filter="todas" aria-pressed="true">Todas</button>
-        <button class="filter" data-filter="cardio" aria-pressed="false">Cardiologia</button>
-        <button class="filter" data-filter="avc" aria-pressed="false">AVC</button>
-        <button class="filter" data-filter="aps" aria-pressed="false">Atenção primária</button>
-      </div></div>
-    <div class="list rv"><a class="item" href="https://doi.org/10.1001/jamacardio.2026.2510" target="_blank" rel="noopener" data-tags="cardio">
+    <div class="head-obj rv">
+      <div><span class="eyebrow">Ciência</span><h2 class="h2" id="pub-t">Publicações</h2><p class="lead" style="margin-top:14px">Produção científica com alcance internacional e impacto na saúde pública.</p>
+        <div class="filters" role="group" aria-label="Filtrar publicações">
+          <button class="filter on" data-filter="todas" aria-pressed="true">Todas</button>
+          <button class="filter" data-filter="cardio" aria-pressed="false">Cardiologia</button>
+          <button class="filter" data-filter="avc" aria-pressed="false">AVC</button>
+          <button class="filter" data-filter="aps" aria-pressed="false">Atenção primária</button>
+        </div></div>
+      <img class="obj" src="img/obj-livro.webp" alt="" loading="lazy">
+    </div>
+    <div class="list"><a class="item" href="https://doi.org/10.1001/jamacardio.2026.2510" target="_blank" rel="noopener" data-tags="cardio">
       <div class="meta"><b>JAMA Cardiology</b>2026</div>
       <div class="t"><b>SAPPHIRE-LDL: intervenção digital e controle do LDL-C</b><span>Ensaio randomizado por cluster em 28 clínicas brasileiras, com 1.465 pacientes.</span></div>
       <span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -166,7 +278,10 @@
 
 <section class="sec soft" aria-labelledby="est-t">
   <div class="wrap">
-    <div class="sec-head rv"><div><span class="eyebrow">Estudos</span><h2 class="h2"><span id="est-t">Estudos registrados</span></h2><p class="lead">Registrados no ClinicalTrials.gov e aprovados pelo sistema de ética em pesquisa do Brasil.</p></div></div>
+    <div class="head-obj rv">
+      <div><span class="eyebrow">Estudos</span><h2 class="h2" id="est-t">Ciência com ética, dados com cuidado</h2><p class="lead" style="margin-top:14px">Registrados no ClinicalTrials.gov e aprovados pelo sistema de ética em pesquisa do Brasil.</p></div>
+      <img class="obj" src="img/obj-escudo.webp" alt="" loading="lazy">
+    </div>
     <div class="cards c3"><div class="study rv">
       <div class="st"><span>NCT07361276</span><span class="pill live">Recrutando</span></div>
       <p class="h3">CLEAR-HTN</p>
@@ -196,7 +311,23 @@
   </div>
 </section>
 
-<section class="sec" aria-labelledby="ev-t">
+<section class="sec" aria-labelledby="ins-t">
+  <div class="wrap">
+    <div class="band-dark rv">
+      <img class="bg" src="img/fundo-ondas.webp" alt="" loading="lazy">
+      <div>
+        <span class="eyebrow">Primary Care Insights</span>
+        <h2 class="h2" id="ins-t">A atenção primária brasileira em panoramas</h2>
+        <p>Reports nacionais feitos a partir de dados públicos do SUS — da testagem de hepatites virais aos 12 anos de produção da APS.</p>
+        <div class="mini"><span>Hepatites virais na APS</span><span>A APS em dados</span></div>
+        <div class="btns" style="margin-top:28px"><a class="btn white" href="insights.html">Ver os reports</a></div>
+      </div>
+      <img class="globe" src="img/obj-globo.webp" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="ev-t">
   <div class="wrap">
     <div class="sec-head rv"><div><span class="eyebrow">Presença internacional</span><h2 class="h2"><span id="ev-t">Onde apresentamos nossos resultados</span></h2></div></div>
     <div class="cards c3">
@@ -207,11 +338,15 @@
   </div>
 </section>
 
-<section class="sec tight" aria-labelledby="ins-t">
-  <div class="wrap">
-    <div class="cta-band rv">
-      <div><h2 class="h2" id="ins-t">Primary Care Insights</h2><p>Reports com panoramas nacionais da atenção primária brasileira, feitos a partir de dados públicos do SUS.</p></div>
-      <div class="btns"><a class="btn white" href="insights.html">Ver os reports</a></div>
+<section class="sec soft" aria-labelledby="faq-t">
+  <div class="wrap faq2">
+    <div class="rv"><span class="eyebrow">Dúvidas</span><h2 class="h2" id="faq-t">Perguntas frequentes</h2></div>
+    <div class="rv">
+      <details><summary>O que é evidência de mundo real?</summary><p>São estudos feitos com dados do dia a dia do cuidado — como os registros da atenção primária — e não só em ambientes controlados. Ajudam a apoiar políticas públicas, decisões clínicas e estratégias em saúde.</p></details>
+      <details><summary>Os estudos passam por comitê de ética?</summary><p>Sim. Nossos estudos são aprovados pelo sistema CEP/CONEP, e os ensaios clínicos ficam registrados no ClinicalTrials.gov.</p></details>
+      <details><summary>O que é o epScience?</summary><p>É a nossa plataforma para estudos clínicos: integra paciente, sites participantes e centro coordenador, com eCRF, SDV, queries, eConsent e chat no celular.</p></details>
+      <details><summary>Qual a diferença entre a epHealth e o Instituto epHealth?</summary><p>A epHealth é a empresa de tecnologia e pesquisa. O Instituto epHealth é a organização sem fins lucrativos que atua com saúde pública.</p></details>
+      <details><summary>Como começar um projeto com a epHealth?</summary><p>Escreva para a gente pelo formulário abaixo ou pelo e-mail info@ephealth.com.br. Nosso time responde em até 2 dias úteis.</p></details>
     </div>
   </div>
 </section>
@@ -274,6 +409,9 @@
     <div class="legal"><span>© 2026 epHealth. Todos os direitos reservados.</span><span>Florianópolis — Brasil</span></div>
   </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
+<script src="anim.js" defer></script>
 </body>
 </html>

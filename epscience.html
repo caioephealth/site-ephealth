@@ -17,11 +17,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="epscience">
+<body data-page="epscience" data-hero="dark">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="epHealth — início"><img src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"></a>
+    <a class="logo" href="index.html" aria-label="epHealth — início"><img class="c" src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"><img class="w" src="img/logo-ephealth-branco.svg" alt="epHealth" width="126" height="36"></a>
     <nav aria-label="Principal"><a href="index.html#solucoes">Soluções</a><a href="epscience.html" aria-current=page>epScience</a><a href="index.html#ciencia">Ciência</a><a href="insights.html">Primary Care Insights</a><a href="sobre.html">Sobre nós</a><a href="equipe.html">Equipe</a><a href="https://www.novo.institutoephealth.org" target="_blank" rel="noopener">Saúde Pública ↗</a></nav>
     <a class="btn" href="#contato">Fale conosco</a>
     <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular"><span></span></button>
@@ -32,17 +32,18 @@
   <a class="btn" href="#contato">Fale conosco</a>
 </nav>
 <main id="conteudo">
-<section class="hero page-hero sci-hero">
-  <div class="wrap">
-    <div class="txt rv">
-      <span class="eyebrow" style="margin:0">epScience</span>
-      <h1>O estudo clínico inteiro <strong>na palma da mão</strong>.</h1>
-      <p class="lead">Pacientes, sites de pesquisa e centro coordenador no mesmo aplicativo — do recrutamento ao fechamento, com dados em tempo real.</p>
-      <div class="btns"><a class="btn" href="?assunto=epscience#contato">Agende uma demonstração</a><a class="btn line" href="#telas">Ver as telas</a></div>
-    </div>
-    <div class="pic rv"><img src="img/mock-mao.webp" alt="Mão segurando celular com a tela inicial do epScience: atalhos, histórias e total do estudo" width="1100" height="1467" fetchpriority="high"></div>
+<section class="vhero short has-side">
+  <img class="vhero-bg" src="img/fundo-ondas.webp" alt="" fetchpriority="high">
+  <div class="vhero-shade"></div>
+  <div class="wrap vhero-in">
+    <span class="kicker"><span class="dot"></span>epScience</span>
+    <h1 class="vhero-title" style="font-size:clamp(38px,5vw,68px)">O estudo clínico inteiro <em>na palma da mão</em>.</h1>
+    <p class="vhero-lead">Pacientes, sites de pesquisa e centro coordenador no mesmo aplicativo — do recrutamento ao fechamento, com dados em tempo real.</p>
+    <div class="btns"><a class="btn white" href="?assunto=epscience#contato">Agende uma demonstração</a><a class="btn glass" href="#telas">Ver as telas</a></div>
   </div>
+  <div class="media-r"><img src="img/mock-mao.webp" alt="Mão segurando celular com a tela inicial do epScience" width="1100" height="1467"></div>
 </section>
+
 
 <section class="sec" aria-labelledby="nm-t">
   <div class="wrap">
@@ -222,6 +223,9 @@
     <div class="legal"><span>© 2026 epHealth. Todos os direitos reservados.</span><span>Florianópolis — Brasil</span></div>
   </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
+<script src="anim.js" defer></script>
 </body>
 </html>

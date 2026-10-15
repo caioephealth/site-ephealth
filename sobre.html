@@ -17,11 +17,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="sobre">
+<body data-page="sobre" data-hero="dark">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="epHealth — início"><img src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"></a>
+    <a class="logo" href="index.html" aria-label="epHealth — início"><img class="c" src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"><img class="w" src="img/logo-ephealth-branco.svg" alt="epHealth" width="126" height="36"></a>
     <nav aria-label="Principal"><a href="index.html#solucoes">Soluções</a><a href="epscience.html">epScience</a><a href="index.html#ciencia">Ciência</a><a href="insights.html">Primary Care Insights</a><a href="sobre.html" aria-current=page>Sobre nós</a><a href="equipe.html">Equipe</a><a href="https://www.novo.institutoephealth.org" target="_blank" rel="noopener">Saúde Pública ↗</a></nav>
     <a class="btn" href="#contato">Fale conosco</a>
     <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular"><span></span></button>
@@ -32,19 +32,16 @@
   <a class="btn" href="#contato">Fale conosco</a>
 </nav>
 <main id="conteudo">
-<section class="hero page-hero">
-  <div class="wrap">
-    <div class="txt rv">
-      <span class="eyebrow" style="margin:0">Sobre nós</span>
-      <h1>Estamos em uma missão: sair do cuidado <strong>reativo</strong> para o <strong>proativo</strong>.</h1>
-      <p class="lead">Atuamos nos principais gargalos da saúde — o acesso e o desenvolvimento científico — unindo saúde pública, tecnologia e ciência.</p>
-      <div class="btns"><a class="btn" href="#contato">Fale conosco</a></div>
-    </div>
-    <div class="pic rv">
-      <img src="img/campo-grupo.webp" alt="Equipe da epHealth reunida com agentes comunitários de saúde em frente a uma igreja" width="1800" height="1013" fetchpriority="high">
-      
-    </div>
+<section class="vhero short">
+  <img class="vhero-bg" src="img/campo-grupo.webp" alt="" fetchpriority="high">
+  <div class="vhero-shade"></div>
+  <div class="wrap vhero-in">
+    <span class="kicker"><span class="dot"></span>Sobre nós</span>
+    <h1 class="vhero-title" style="font-size:clamp(38px,5vw,68px)">Estamos em uma missão: sair do cuidado <em>reativo</em> para o <em>proativo</em>.</h1>
+    <p class="vhero-lead">Atuamos nos principais gargalos da saúde — o acesso e o desenvolvimento científico — unindo saúde pública, tecnologia e ciência.</p>
+    <div class="btns"><a class="btn white" href="#contato">Fale conosco</a></div>
   </div>
+  
 </section>
 
 <section class="sec" aria-labelledby="cr-t">
@@ -135,6 +132,9 @@
     <div class="legal"><span>© 2026 epHealth. Todos os direitos reservados.</span><span>Florianópolis — Brasil</span></div>
   </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
+<script src="anim.js" defer></script>
 </body>
 </html>

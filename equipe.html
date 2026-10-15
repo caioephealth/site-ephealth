@@ -17,11 +17,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="equipe">
+<body data-page="equipe" data-hero="dark">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="epHealth — início"><img src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"></a>
+    <a class="logo" href="index.html" aria-label="epHealth — início"><img class="c" src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"><img class="w" src="img/logo-ephealth-branco.svg" alt="epHealth" width="126" height="36"></a>
     <nav aria-label="Principal"><a href="index.html#solucoes">Soluções</a><a href="epscience.html">epScience</a><a href="index.html#ciencia">Ciência</a><a href="insights.html">Primary Care Insights</a><a href="sobre.html">Sobre nós</a><a href="equipe.html" aria-current=page>Equipe</a><a href="https://www.novo.institutoephealth.org" target="_blank" rel="noopener">Saúde Pública ↗</a></nav>
     <a class="btn" href="#contato">Fale conosco</a>
     <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular"><span></span></button>
@@ -32,10 +32,19 @@
   <a class="btn" href="#contato">Fale conosco</a>
 </nav>
 <main id="conteudo">
+<section class="vhero short">
+  <img class="vhero-bg" src="img/fundo-ondas.webp" alt="" fetchpriority="high">
+  <div class="vhero-shade"></div>
+  <div class="wrap vhero-in">
+    <span class="kicker"><span class="dot"></span>Equipe</span>
+    <h1 class="vhero-title" style="font-size:clamp(38px,5vw,68px)">Liderança</h1>
+    <p class="vhero-lead">Esta página está sendo preparada.</p>
+    
+  </div>
+  
+</section>
 <section class="sec"><div class="wrap empty">
-  <span class="eyebrow" style="margin:0">Equipe</span>
-  <h1>Liderança</h1>
-  <p class="lead">Esta página está sendo preparada.</p>
+  <p class="lead">Em breve, as pessoas por trás da epHealth.</p>
   <a class="btn line" href="index.html">Voltar ao início</a>
 </div></section>
 <section class="sec soft" id="contato" aria-labelledby="contato-t">
@@ -97,6 +106,9 @@
     <div class="legal"><span>© 2026 epHealth. Todos os direitos reservados.</span><span>Florianópolis — Brasil</span></div>
   </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
+<script src="anim.js" defer></script>
 </body>
 </html>

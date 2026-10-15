@@ -17,11 +17,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="insights">
+<body data-page="insights" data-hero="dark">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="epHealth — início"><img src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"></a>
+    <a class="logo" href="index.html" aria-label="epHealth — início"><img class="c" src="img/logo-ephealth.svg" alt="epHealth" width="126" height="36"><img class="w" src="img/logo-ephealth-branco.svg" alt="epHealth" width="126" height="36"></a>
     <nav aria-label="Principal"><a href="index.html#solucoes">Soluções</a><a href="epscience.html">epScience</a><a href="index.html#ciencia">Ciência</a><a href="insights.html" aria-current=page>Primary Care Insights</a><a href="sobre.html">Sobre nós</a><a href="equipe.html">Equipe</a><a href="https://www.novo.institutoephealth.org" target="_blank" rel="noopener">Saúde Pública ↗</a></nav>
     <a class="btn" href="#contato">Fale conosco</a>
     <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular"><span></span></button>
@@ -32,19 +32,16 @@
   <a class="btn" href="#contato">Fale conosco</a>
 </nav>
 <main id="conteudo">
-<section class="hero page-hero">
-  <div class="wrap">
-    <div class="txt rv">
-      <span class="eyebrow" style="margin:0">Primary Care Insights</span>
-      <h1>A atenção primária brasileira <strong>em dados</strong>.</h1>
-      <p class="lead">Reports com panoramas nacionais da atenção primária, feitos a partir de dados públicos do SUS.</p>
-      
-    </div>
-    <div class="pic rv">
-      <img src="img/campo-tablet-casa.webp" alt="Agente de saúde consulta dados no tablet durante visita" width="1800" height="1013" fetchpriority="high">
-      
-    </div>
+<section class="vhero short has-side">
+  <img class="vhero-bg" src="img/fundo-ondas.webp" alt="" fetchpriority="high">
+  <div class="vhero-shade"></div>
+  <div class="wrap vhero-in">
+    <span class="kicker"><span class="dot"></span>Primary Care Insights</span>
+    <h1 class="vhero-title" style="font-size:clamp(38px,5vw,68px)">A atenção primária brasileira <em>em dados</em>.</h1>
+    <p class="vhero-lead">Reports com panoramas nacionais da atenção primária, feitos a partir de dados públicos do SUS.</p>
+    <div class="btns"><a class="btn white" href="#rp-t">Ver os reports</a></div>
   </div>
+  <div class="media-r"><img src="img/obj-globo.webp" alt="" style="box-shadow:none;border-radius:0" class="floaty"></div>
 </section>
 
 <section class="sec" aria-labelledby="rp-t">
@@ -127,6 +124,9 @@
     <div class="legal"><span>© 2026 epHealth. Todos os direitos reservados.</span><span>Florianópolis — Brasil</span></div>
   </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
+<script src="anim.js" defer></script>
 </body>
 </html>
