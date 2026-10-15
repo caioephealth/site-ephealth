@@ -78,14 +78,15 @@
   });
 
   // Cards entram em sequência
-  ScrollTrigger.batch('.b-card, .phone, .xp, .field figure, .study, .item', {
+  ScrollTrigger.batch('.b-card, .phone, .svc-row, .fieldwork figure, .study, .item', {
     start: 'top 88%', once: true,
     onEnter: (els) => gsap.fromTo(els, { y: 36, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .9, ease: 'power3.out', stagger: .08, overwrite: true }),
   });
 
   // Parallax suave
   document.querySelectorAll('[data-speed]').forEach((el) => {
-    gsap.to(el, { yPercent: Number(el.dataset.speed) * -10, ease: 'none', scrollTrigger: { trigger: el.closest('section') || el, start: 'top bottom', end: 'bottom top', scrub: true } });
+    const d = Number(el.dataset.speed) * 40;
+    gsap.fromTo(el, { y: d }, { y: -d, ease: 'none', scrollTrigger: { trigger: el.closest('section') || el, start: 'top bottom', end: 'bottom top', scrub: true } });
   });
 
   // História do território: fixa a seção e troca as fotos conforme a rolagem
@@ -115,6 +116,20 @@
     }
     return () => steps.forEach((s) => s.classList.add('on'));
   });
+
+  // Soluções: imagem que acompanha o mouse
+  const fl = document.querySelector('.svc-float');
+  if (fl && window.matchMedia('(hover: hover) and (min-width: 901px)').matches) {
+    const img = fl.querySelector('img');
+    gsap.set(fl, { xPercent: -50, yPercent: -50, scale: .6 });
+    const mx = gsap.quickTo(fl, 'x', { duration: .5, ease: 'power3' });
+    const my = gsap.quickTo(fl, 'y', { duration: .5, ease: 'power3' });
+    document.querySelectorAll('.svc-row').forEach((row) => {
+      row.addEventListener('mouseenter', () => { img.src = row.dataset.img; gsap.to(fl, { autoAlpha: 1, scale: 1, rotate: -4, duration: .45, ease: 'power3.out' }); });
+      row.addEventListener('mouseleave', () => gsap.to(fl, { autoAlpha: 0, scale: .6, rotate: 0, duration: .35, ease: 'power2.in' }));
+      row.addEventListener('mousemove', (e) => { mx(e.clientX + 170); my(e.clientY); });
+    });
+  }
 
   // Recalcula depois que as imagens carregam
   window.addEventListener('load', () => ScrollTrigger.refresh());
