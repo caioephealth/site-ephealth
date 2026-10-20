@@ -70,11 +70,15 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   const errBox = document.getElementById('form-error');
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  const EN = document.documentElement.lang.startsWith('en');
+  const T = EN
+    ? { nome: 'Please tell us your name.', email: 'Please check your email address.', telefone: 'Please enter your phone number with area code.', mensagem: 'Tell us briefly what you need.' }
+    : { nome: 'Diga como podemos te chamar.', email: 'Confira o e-mail.', telefone: 'Informe o telefone com DDD.', mensagem: 'Conte em poucas palavras o que você precisa.' };
   const rules = {
-    nome: (v) => (v.trim().length >= 2 ? '' : 'Diga como podemos te chamar.'),
-    email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Confira o e-mail.'),
-    telefone: (v) => (v.replace(/\D/g, '').length >= 10 ? '' : 'Informe o telefone com DDD.'),
-    mensagem: (v) => (v.trim().length >= 10 ? '' : 'Conte em poucas palavras o que você precisa.'),
+    nome: (v) => (v.trim().length >= 2 ? '' : T.nome),
+    email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : T.email),
+    telefone: (v) => (v.replace(/\D/g, '').length >= 8 ? '' : T.telefone),
+    mensagem: (v) => (v.trim().length >= 10 ? '' : T.mensagem),
   };
   const check = (n) => {
     const el = form.elements[n];
@@ -88,7 +92,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   Object.keys(rules).forEach((n) => form.elements[n].addEventListener('blur', () => check(n)));
 
   // Máscara simples de telefone brasileiro
-  form.elements.telefone.addEventListener('input', (e) => {
+  if (!EN) form.elements.telefone.addEventListener('input', (e) => {
     const d = e.target.value.replace(/\D/g, '').slice(0, 11);
     let out = d;
     if (d.length > 2) out = `(${d.slice(0, 2)}) ${d.slice(2)}`;
@@ -193,5 +197,20 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   document.querySelectorAll('.nav-btn').forEach((b) => b.addEventListener('click', () => {
     const step = track.querySelector('.screen').getBoundingClientRect().width + 24;
     track.scrollBy({ left: Number(b.dataset.dir) * step * 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+  }));
+})();
+
+// Seletor de idioma
+(() => {
+  const box = document.querySelector('.lang');
+  if (!box) return;
+  const btn = box.querySelector('.lang-btn');
+  const set = (o) => { box.classList.toggle('open', o); btn.setAttribute('aria-expanded', String(o)); };
+  btn.addEventListener('click', (e) => { e.stopPropagation(); set(!box.classList.contains('open')); });
+  document.addEventListener('click', (e) => { if (!box.contains(e.target)) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+  // leva junto a âncora da seção atual ao trocar de idioma
+  document.querySelectorAll('a[data-lang]').forEach((a) => a.addEventListener('click', () => {
+    try { localStorage.setItem('ephealth-lang', a.dataset.lang); } catch (_) { /* ok */ }
   }));
 })();

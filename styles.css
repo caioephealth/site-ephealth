@@ -711,3 +711,27 @@ body[data-hero=dark].menu-open .menu-btn span, body[data-hero=dark].menu-open .m
 }
 .sci3-stage { padding-top: 104px; padding-bottom: 24px; }
 @media (min-width: 1001px) and (max-height: 820px) { .phone3 { transform: scale(.88); } .sci3-device { height: 620px; } }
+
+/* ---------- seletor de idioma ---------- */
+.lang { position: relative; }
+.lang-btn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); font-size: 14px; font-weight: 600; letter-spacing: .02em; transition: background .2s, border-color .2s, color .2s; }
+.lang-btn:hover { border-color: var(--blue); color: var(--blue); }
+body[data-hero=dark] .lang-btn { color: #fff; border-color: rgba(255, 255, 255, .4); }
+body[data-hero=dark] .lang-btn:hover { background: rgba(255, 255, 255, .12); }
+body[data-hero=dark].scrolled .lang-btn { color: var(--ink); border-color: var(--line); }
+body[data-hero=dark].scrolled .lang-btn:hover { color: var(--blue); border-color: var(--blue); background: transparent; }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 10px); min-width: 190px; list-style: none; background: #fff; border-radius: 14px; padding: 6px; box-shadow: 0 20px 50px rgba(22, 33, 94, .18); border: 1px solid var(--line); opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity .2s, transform .25s var(--ease); z-index: 60; }
+.lang.open .lang-menu { opacity: 1; transform: none; pointer-events: auto; }
+.lang-menu a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-radius: 10px; font-size: 15px; color: var(--ink) !important; border: 0 !important; }
+.lang-menu a:hover { background: var(--soft); }
+.lang-menu a[aria-current]::after { content: '✓'; color: var(--blue); font-weight: 700; }
+.mob-lang { display: none; }
+@media (max-width: 1100px) {
+  .top .lang { margin-left: auto; }
+  .menu-btn { margin-left: 8px; }
+  .mobile-nav .mob-lang { display: flex; align-items: center; gap: 14px; margin-top: 24px; color: var(--muted); font-size: 15px; }
+  .mobile-nav .mob-lang a { font-size: 16px; padding: 0; border: 0; color: var(--navy); }
+  .mobile-nav .mob-lang a[aria-current] { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+}
+@media (max-width: 760px) { .lang-btn { height: 36px; padding: 0 10px; } }
+body[data-hero=dark].menu-open .lang-btn { color: var(--ink); border-color: var(--line); }

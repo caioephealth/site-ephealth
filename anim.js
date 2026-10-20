@@ -35,7 +35,7 @@
   // Números: formata no padrão brasileiro
   const fmt = (el, v) => {
     const dec = Number(el.dataset.dec || 0);
-    const n = v.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    const n = v.toLocaleString(document.documentElement.lang.startsWith('en') ? 'en-US' : 'pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
     return `${el.dataset.pre || ''}${n}${el.dataset.suf || ''}`;
   };
 
