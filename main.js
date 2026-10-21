@@ -257,72 +257,30 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   if (location.hash === '#sol-epscience' || location.hash === '#epscience-home') open('sol-epscience');
 })();
 
-// Infraestrutura crítica: mapa de pontos, torres da ponte e troca dos pilares
-(function(){
-  var NS='http://www.w3.org/2000/svg';
-  var svg=document.getElementById('ic-svg');
-  if(!svg)return;
-
-  /* Contorno simplificado do Brasil (lon, lat) -> nuvem de pontos */
-  var br=[[-60.5,5.2],[-51.5,4.2],[-50,0],[-44,-2.5],[-38,-3.5],[-35.2,-5.5],[-34.8,-8],[-38.5,-13],[-39,-17.5],[-40.3,-20.3],[-43,-23],[-46.5,-24],[-48.5,-26],[-48.6,-28.5],[-50.5,-30.5],[-53.4,-33.7],[-57.6,-30.2],[-55,-27],[-54.6,-25.5],[-58,-22],[-57.8,-19.5],[-60,-16],[-65,-11],[-70,-11],[-73.5,-7.5],[-73,-4.5],[-69.5,-1],[-70,1.5],[-66.8,1.2],[-64,4]];
-  var k=3.7, ox=18, oy=172;
-  var poly=br.map(function(p){return [ox+(p[0]+74)*k, oy+(5.5-p[1])*k];});
-  function inside(x,y){var c=false;for(var i=0,j=poly.length-1;i<poly.length;j=i++){var a=poly[i],b=poly[j];if(((a[1]>y)!=(b[1]>y))&&(x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0]))c=!c;}return c;}
-  var g=document.getElementById('ic-br');
-  var outline=document.createElementNS(NS,'polygon');
-  outline.setAttribute('points',poly.map(function(p){return p.join(',')}).join(' '));
-  outline.setAttribute('fill','rgba(185,184,238,.04)');
-  outline.setAttribute('stroke','rgba(185,184,238,.22)');
-  g.appendChild(outline);
-  var seed=7;function rnd(){seed=(seed*9301+49297)%233280;return seed/233280;}
-  for(var y=oy;y<oy+175;y+=9){for(var x=ox;x<ox+180;x+=9){
-    var px=x+(rnd()-.5)*4, py=y+(rnd()-.5)*4;
-    if(!inside(px,py))continue;
-    var c=document.createElementNS(NS,'circle');
-    var on=rnd()<.09;
-    c.setAttribute('cx',px.toFixed(1));c.setAttribute('cy',py.toFixed(1));
-    c.setAttribute('r',on?2.4:1.5);
-    c.setAttribute('class',on?'ic-dot on':'ic-dot');
-    if(on)c.style.animationDelay=(rnd()*3).toFixed(2)+'s';
-    g.appendChild(c);
-  }}
-
-  /* Torres da ponte (4 pilares) */
-  var pg=document.getElementById('ic-pylons');
-  var xs=[195,265,335,405], top=168, deck=240;
-  xs.forEach(function(x,i){
-    var grp=document.createElementNS(NS,'g'), cables='';
-    [-30,-20,-10,10,20,30].forEach(function(d){
-      cables+='<line class="cable" x1="'+x+'" y1="'+(top+8)+'" x2="'+(x+d)+'" y2="'+deck+'" stroke-width="1"/>';
-    });
-    grp.setAttribute('class','ic-pylon'+(i===0?' is-active':''));
-    grp.innerHTML=cables+
-      '<rect class="tower" x="'+(x-2.5)+'" y="'+top+'" width="5" height="'+(296-top)+'" rx="2"/>'+
-      '<circle class="halo" cx="'+x+'" cy="'+top+'" r="11" fill="none" stroke="rgba(255,255,255,.14)"/>'+
-      '<circle class="core" cx="'+x+'" cy="'+top+'" r="4.5" fill="rgba(185,184,238,.7)"/>'+
-      '<text x="'+x+'" y="'+(top-20)+'" text-anchor="middle">0'+(i+1)+'</text>';
-    pg.appendChild(grp);
-  });
-
-  /* Interação */
-  var chips=[].map.call(document.querySelectorAll('.ic-item'),function(el){return [el.dataset.t,el.dataset.s];});
-  var items=[].slice.call(document.querySelectorAll('.ic-item'));
-  var pylons=[].slice.call(pg.children);
-  var chip=document.getElementById('ic-chip'), ct=document.getElementById('ic-chip-t'), cs=document.getElementById('ic-chip-s');
-  var cur=0, timer=null;
-  function set(i){
-    if(i===cur)return; cur=i;
-    items.forEach(function(el,j){el.classList.toggle('is-active',j===i);el.setAttribute('aria-selected',j===i);});
-    pylons.forEach(function(el,j){el.classList.toggle('is-active',j===i);});
+// Infraestrutura crítica: troca dos pilares junto com as torres da ponte
+(() => {
+  const items = [...document.querySelectorAll('.ic-item')];
+  if (!items.length) return;
+  const pylons = [...document.querySelectorAll('.ic-pylon')];
+  const chip = document.getElementById('ic-chip');
+  const ct = document.getElementById('ic-chip-t');
+  const cs = document.getElementById('ic-chip-s');
+  let cur = 0, timer = null;
+  const set = (i) => {
+    if (i === cur) return; cur = i;
+    items.forEach((el, j) => { el.classList.toggle('is-active', j === i); el.setAttribute('aria-selected', String(j === i)); });
+    pylons.forEach((el, j) => el.classList.toggle('is-active', j === i));
     chip.classList.add('swap');
-    setTimeout(function(){ct.textContent=chips[i][0];cs.textContent=chips[i][1];chip.classList.remove('swap');},220);
-  }
-  function auto(){clearInterval(timer);timer=setInterval(function(){set((cur+1)%4)},4200);}
-  items.forEach(function(el,i){
-    el.addEventListener('mouseenter',function(){set(i);clearInterval(timer);});
-    el.addEventListener('mouseleave',auto);
-    el.addEventListener('click',function(){set(i);auto();});
-    el.addEventListener('focus',function(){set(i);clearInterval(timer);});
+    setTimeout(() => { ct.textContent = items[i].dataset.t; cs.textContent = items[i].dataset.s; chip.classList.remove('swap'); }, 220);
+  };
+  const auto = () => { clearInterval(timer); timer = setInterval(() => set((cur + 1) % items.length), 4200); };
+  items.forEach((el, i) => {
+    el.addEventListener('mouseenter', () => { set(i); clearInterval(timer); });
+    el.addEventListener('mouseleave', auto);
+    el.addEventListener('click', () => { set(i); auto(); });
+    el.addEventListener('focus', () => { set(i); clearInterval(timer); });
   });
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)auto();
+  // a torre também escolhe o pilar
+  pylons.forEach((p, i) => p.addEventListener('click', () => { set(i); auto(); }));
+  if (!reduceMotion) auto();
 })();
