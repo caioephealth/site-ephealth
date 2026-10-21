@@ -156,7 +156,7 @@
   gsap.from('.ap-course', { y: 40, autoAlpha: 0, duration: .9, ease: 'power3.out', stagger: .12, scrollTrigger: { trigger: '.ap-courses', start: 'top 88%', once: true } });
   gsap.to('.ap-obj', { y: 120, rotate: 20, ease: 'none', scrollTrigger: { trigger: '.aplay', start: 'top bottom', end: 'bottom top', scrub: true } });
 
-  // epScience (aba de Soluções): passa sozinho enquanto está na tela; clicar escolhe o passo
+  // epScience (vitrine da página epScience): passa sozinho enquanto está na tela; clicar escolhe o passo
   const sci = document.querySelector('.sci3-card .sci3-stage');
   if (sci) {
     const s = stepper(sci, '.scr img');
@@ -165,14 +165,7 @@
     const play = () => { stop(); timer = setInterval(() => s.set((s.cur + 1) % s.n), 4200); };
     s.steps.forEach((li, i) => li.addEventListener('click', () => { s.set(i); play(); }));
     ScrollTrigger.create({ trigger: sci, start: 'top 80%', end: 'bottom 20%', onToggle: (self) => (self.isActive ? play() : stop()) });
-    document.addEventListener('soltab', (e) => {
-      if (e.detail === 'sol-epscience') {
-        s.set(0);
-        gsap.fromTo('.sci3-card .phone3', { y: 70, rotate: -4, autoAlpha: 0 }, { y: 0, rotate: 0, autoAlpha: 1, duration: 1.1, ease: 'power3.out' });
-        gsap.fromTo('.sci3-card .sci3-steps li', { x: -24, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: .7, stagger: .08, ease: 'power3.out', clearProps: 'opacity,visibility,transform' });
-        play();
-      } else stop();
-    });
+    gsap.from('.sci3-card .phone3', { y: 70, rotate: -4, autoAlpha: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: sci, start: 'top 75%', once: true } });
   }
 
   // Soluções: imagem que acompanha o mouse

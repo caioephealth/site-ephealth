@@ -215,48 +215,6 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   }));
 })();
 
-// Soluções: sub-abas (Todas as frentes / epScience)
-(() => {
-  const bar = document.querySelector('.subtabs');
-  if (!bar) return;
-  const tabs = [...bar.querySelectorAll('[role=tab]')];
-  const ink = bar.querySelector('.subtabs-ink');
-  const place = (t) => { ink.style.width = `${t.offsetWidth}px`; ink.style.transform = `translateX(${t.offsetLeft}px)`; };
-  const select = (t, focus) => {
-    tabs.forEach((x) => {
-      const on = x === t;
-      x.setAttribute('aria-selected', String(on));
-      x.tabIndex = on ? 0 : -1;
-      const p = document.getElementById(x.getAttribute('aria-controls'));
-      p.hidden = !on;
-      if (on && !reduceMotion) { p.classList.remove('anim'); void p.offsetWidth; p.classList.add('anim'); }
-    });
-    place(t);
-    if (focus) t.focus();
-    document.dispatchEvent(new CustomEvent('soltab', { detail: t.getAttribute('aria-controls') }));
-    if (window.ScrollTrigger) requestAnimationFrame(() => window.ScrollTrigger.refresh());
-  };
-  tabs.forEach((t, i) => {
-    t.addEventListener('click', () => select(t));
-    t.addEventListener('keydown', (e) => {
-      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      select(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
-    });
-  });
-  place(tabs[0]);
-  window.addEventListener('resize', () => place(tabs.find((t) => t.getAttribute('aria-selected') === 'true')));
-  // links que apontam para uma aba (ex.: a linha EDC · epScience)
-  const open = (id) => {
-    const t = tabs.find((x) => x.getAttribute('aria-controls') === id);
-    if (!t) return false;
-    select(t);
-    setTimeout(() => document.getElementById('solucoes').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }), 60);
-    return true;
-  };
-  document.querySelectorAll('a[href="#sol-epscience"]').forEach((a) => a.addEventListener('click', (e) => { if (open('sol-epscience')) e.preventDefault(); }));
-  if (location.hash === '#sol-epscience' || location.hash === '#epscience-home') open('sol-epscience');
-})();
-
 // Infraestrutura crítica: troca dos pilares junto com as torres da ponte
 (() => {
   const items = [...document.querySelectorAll('.ic-item')];
