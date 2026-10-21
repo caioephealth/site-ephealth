@@ -117,28 +117,63 @@
     return () => steps.forEach((s) => s.classList.add('on'));
   });
 
-  // epScience: o celular troca de tela conforme a rolagem
-  mm.add('(min-width: 1001px)', () => {
-    const stage = document.querySelector('.sci3-stage');
-    if (!stage) return;
-    const steps = stage.querySelectorAll('.sci3-steps li');
-    const scrs = stage.querySelectorAll('.scr img');
+  // Vitrines com passos: marca o passo ativo e troca as telas e os cartões
+  const stepper = (stage, screens) => {
+    const steps = stage.querySelectorAll('ol > li');
+    const scrs = stage.querySelectorAll(screens);
     const groups = stage.querySelectorAll('.fc-group');
-    const n = steps.length;
     let cur = -1;
     const set = (i) => {
       if (i === cur) return; cur = i;
       steps.forEach((s, k) => s.classList.toggle('on', k === i));
-      scrs.forEach((s, k) => s.classList.toggle('on', k === i));
+      scrs.forEach((s) => s.classList.toggle('on', Number(s.dataset.i ?? [...s.parentNode.children].indexOf(s)) === i));
       groups.forEach((s, k) => s.classList.toggle('on', k === i));
     };
     set(0);
-    ScrollTrigger.create({
-      trigger: stage, start: 'top top', end: `+=${n * 60}%`, pin: true,
-      onUpdate: (self) => set(Math.min(n - 1, Math.floor(self.progress * n * 0.999))),
+    return { set, n: steps.length, steps, get cur() { return cur; } };
+  };
+
+  // APS Play: notebook e celular trocam de tela conforme a rolagem
+  mm.add('(min-width: 1001px)', () => {
+    const stage = document.querySelector('.aplay-stage');
+    if (!stage) return;
+    const s = stepper(stage, '.lap-in img, .ph-in img');
+    const st = ScrollTrigger.create({
+      trigger: stage, start: 'top top', end: `+=${s.n * 60}%`, pin: true,
+      onUpdate: (self) => s.set(Math.min(s.n - 1, Math.floor(self.progress * s.n * 0.999))),
     });
-    gsap.from('.phone3', { y: 80, rotate: -4, autoAlpha: 0, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: stage, start: 'top 75%', once: true } });
+    // clicar num passo leva a rolagem até ele
+    s.steps.forEach((li, i) => li.addEventListener('click', () => {
+      const y = st.start + (st.end - st.start) * ((i + .5) / s.n);
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }));
+    gsap.timeline({ scrollTrigger: { trigger: stage, start: 'top 80%', once: true } })
+      .from('.ap-lap', { y: 90, rotateX: 24, autoAlpha: 0, duration: 1.3, ease: 'power3.out' })
+      .from('.ap-ph', { x: 60, y: 40, rotate: 6, autoAlpha: 0, duration: 1.1, ease: 'power3.out' }, '-=.85');
+    gsap.to('.ap-lap', { yPercent: -4, ease: 'none', scrollTrigger: { trigger: stage, start: 'top top', end: `+=${s.n * 60}%`, scrub: true } });
+    gsap.to('.ap-ph', { yPercent: -10, ease: 'none', scrollTrigger: { trigger: stage, start: 'top top', end: `+=${s.n * 60}%`, scrub: true } });
   });
+  gsap.from('.ap-course', { y: 40, autoAlpha: 0, duration: .9, ease: 'power3.out', stagger: .12, scrollTrigger: { trigger: '.ap-courses', start: 'top 88%', once: true } });
+  gsap.to('.ap-obj', { y: 120, rotate: 20, ease: 'none', scrollTrigger: { trigger: '.aplay', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  // epScience (aba de Soluções): passa sozinho enquanto está na tela; clicar escolhe o passo
+  const sci = document.querySelector('.sci3-card .sci3-stage');
+  if (sci) {
+    const s = stepper(sci, '.scr img');
+    let timer = null;
+    const stop = () => { clearInterval(timer); timer = null; };
+    const play = () => { stop(); timer = setInterval(() => s.set((s.cur + 1) % s.n), 4200); };
+    s.steps.forEach((li, i) => li.addEventListener('click', () => { s.set(i); play(); }));
+    ScrollTrigger.create({ trigger: sci, start: 'top 80%', end: 'bottom 20%', onToggle: (self) => (self.isActive ? play() : stop()) });
+    document.addEventListener('soltab', (e) => {
+      if (e.detail === 'sol-epscience') {
+        s.set(0);
+        gsap.fromTo('.sci3-card .phone3', { y: 70, rotate: -4, autoAlpha: 0 }, { y: 0, rotate: 0, autoAlpha: 1, duration: 1.1, ease: 'power3.out' });
+        gsap.fromTo('.sci3-card .sci3-steps li', { x: -24, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: .7, stagger: .08, ease: 'power3.out', clearProps: 'opacity,visibility,transform' });
+        play();
+      } else stop();
+    });
+  }
 
   // Soluções: imagem que acompanha o mouse
   const fl = document.querySelector('.svc-float');
@@ -154,6 +189,9 @@
     });
   }
 
+  // As seções fixas foram criadas fora da ordem da página: reordena antes de calcular
+  ScrollTrigger.sort();
+  ScrollTrigger.refresh();
   // Recalcula depois que as imagens carregam
-  window.addEventListener('load', () => ScrollTrigger.refresh());
+  window.addEventListener('load', () => { ScrollTrigger.sort(); ScrollTrigger.refresh(); });
 })();
