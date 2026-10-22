@@ -1038,3 +1038,6 @@ section.ic::before{content:"";position:absolute;inset:0;pointer-events:none;opac
 .sci-sec { padding-top: 0; }
 .sci-sec .sci3-head .h2 { color: #fff; }
 .fc-r:has(.fc-k) { flex-direction: column; align-items: flex-start; gap: 8px; }
+.card .ev-logo { height: 34px; width: auto; max-width: 170px; object-fit: contain; object-position: left center; margin-top: 18px; filter: grayscale(1) contrast(1.1); opacity: .8; transition: filter .3s, opacity .3s; }
+.card:hover .ev-logo { filter: none; opacity: 1; }
+.card .ev-logo ~ .h3 { font-size: 20px; font-weight: 500; color: var(--navy); margin-top: 4px; }
