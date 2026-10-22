@@ -1041,3 +1041,15 @@ section.ic::before{content:"";position:absolute;inset:0;pointer-events:none;opac
 .card .ev-logo { height: 34px; width: auto; max-width: 170px; object-fit: contain; object-position: left center; margin-top: 18px; filter: grayscale(1) contrast(1.1); opacity: .8; transition: filter .3s, opacity .3s; }
 .card:hover .ev-logo { filter: none; opacity: 1; }
 .card .ev-logo ~ .h3 { font-size: 20px; font-weight: 500; color: var(--navy); margin-top: 4px; }
+
+/* ---------- topo sobre fundo escuro (mesma regra do site do Instituto) ---------- */
+.top, .top nav a, .top .btn, .lang-btn { transition: background .35s, border-color .35s, color .3s, box-shadow .35s; }
+body.on-dark.scrolled:not(.menu-open) .top { background: rgba(8, 12, 44, .55); border-bottom-color: rgba(255, 255, 255, .08); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+body.on-dark:not(.menu-open) .top nav a { color: rgba(255, 255, 255, .85); }
+body.on-dark:not(.menu-open) .top nav a:hover, body.on-dark:not(.menu-open) .top nav a[aria-current] { color: #fff; border-bottom-color: #fff; }
+body.on-dark:not(.menu-open) .top .logo .c { display: none; }
+body.on-dark:not(.menu-open) .top .logo .w { display: block; }
+body.on-dark:not(.menu-open) .top .btn { background: #fff; border-color: #fff; color: var(--navy); }
+body.on-dark:not(.menu-open) .top .lang-btn { color: #fff; border-color: rgba(255, 255, 255, .4); }
+body.on-dark:not(.menu-open) .top .lang-btn:hover { background: rgba(255, 255, 255, .12); color: #fff; border-color: rgba(255, 255, 255, .6); }
+body.on-dark:not(.menu-open) .menu-btn span, body.on-dark:not(.menu-open) .menu-btn span::before { background: #fff; }

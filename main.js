@@ -242,3 +242,21 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   pylons.forEach((p, i) => p.addEventListener('click', () => { set(i); auto(); }));
   if (!reduceMotion) auto();
 })();
+
+// Topo: sobre trechos de fundo escuro, letras e logo ficam brancos; sobre fundo claro, cores normais
+(() => {
+  const bar = document.querySelector('.top');
+  if (!bar) return;
+  const SEL = '.vhero, section.ic, .aplay, .fieldwork, .foot';
+  let darks = [...document.querySelectorAll(SEL)];
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const y = bar.offsetHeight / 2;
+    document.body.classList.toggle('on-dark', darks.some((el) => { const r = el.getBoundingClientRect(); return r.top <= y && r.bottom >= y && r.left <= innerWidth / 2 && r.right >= innerWidth / 2; }));
+  };
+  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', () => { darks = [...document.querySelectorAll(SEL)]; req(); });
+  update();
+})();
