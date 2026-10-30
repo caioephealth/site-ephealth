@@ -1053,3 +1053,19 @@ body.on-dark:not(.menu-open) .top .btn { background: #fff; border-color: #fff; c
 body.on-dark:not(.menu-open) .top .lang-btn { color: #fff; border-color: rgba(255, 255, 255, .4); }
 body.on-dark:not(.menu-open) .top .lang-btn:hover { background: rgba(255, 255, 255, .12); color: #fff; border-color: rgba(255, 255, 255, .6); }
 body.on-dark:not(.menu-open) .menu-btn span, body.on-dark:not(.menu-open) .menu-btn span::before { background: #fff; }
+
+/* ---------- submenu de Soluções (APS Play, epScience, Primary Care Insights) ---------- */
+.nav-dd { position: relative; display: flex; align-items: center; }
+.nav-dd > a { display: inline-flex; align-items: center; gap: 6px; }
+.nav-dd .chev { transition: transform .25s var(--ease); }
+.nav-dd:hover .chev, .nav-dd:focus-within .chev { transform: rotate(180deg); }
+.dd-menu { position: absolute; top: 100%; left: -18px; min-width: 300px; padding: 8px; margin-top: 14px; background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 24px 60px rgba(22, 33, 94, .16); opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity .22s, transform .3s var(--ease); z-index: 60; }
+.dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
+.nav-dd:hover .dd-menu, .nav-dd:focus-within .dd-menu { opacity: 1; transform: none; pointer-events: auto; }
+.top nav .dd-menu a { display: block; padding: 12px 14px; border: 0 !important; border-radius: 12px; color: var(--ink) !important; transition: background .2s; }
+.top nav .dd-menu a:hover, .top nav .dd-menu a[aria-current] { background: var(--soft); }
+.top nav .dd-menu b { display: block; font-size: 15px; font-weight: 600; color: var(--navy); }
+.top nav .dd-menu a[aria-current] b { color: var(--blue); }
+.top nav .dd-menu span { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--muted); }
+.mobile-nav a.sub { font-size: 17px; padding: 12px 0 12px 18px; color: var(--blue); }
+.aplay.page-top { padding-top: clamp(130px, 13vw, 180px); }
