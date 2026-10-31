@@ -1069,3 +1069,5 @@ body.on-dark:not(.menu-open) .menu-btn span, body.on-dark:not(.menu-open) .menu-
 .top nav .dd-menu span { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--muted); }
 .mobile-nav a.sub { font-size: 17px; padding: 12px 0 12px 18px; color: var(--blue); }
 .aplay.page-top { padding-top: clamp(130px, 13vw, 180px); }
+.ui-white.lc .ui-field { grid-template-columns: 108px minmax(0, 1fr); }
+.ui-white.lc .ui-field > span { white-space: nowrap; }
