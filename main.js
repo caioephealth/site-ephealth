@@ -134,26 +134,24 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
   const phoneE164 = (v) => { let d = v.replace(/\D/g, ''); if (!d.startsWith('55')) d = '55' + d; return '+' + d; };
 
+  // Campos do formulário "Fale conosco!" do site epHealth BR no Wix (os nomes vêm do próprio formulário).
+  // Ele não tem campo de assunto: o assunto e o idioma da página entram no começo da mensagem.
   async function sendToWix() {
     const el = form.elements;
     const token = await visitorToken();
+    const assuntoTxt = el.interesse.options[el.interesse.selectedIndex].text;
+    const mensagem = `[${assuntoTxt} · site ${EN ? 'EN' : 'PT'}]\n${el.mensagem.value.trim()}`;
+    const submissions = {
+      nome_d18e: el.nome.value.trim(),
+      email_1a49: el.email.value.trim(),
+      telefone_5bbb: phoneE164(el.telefone.value),
+      resposta_longa_097d: mensagem,
+    };
+    if (el.empresa.value.trim()) submissions.nome_da_empresa_5a22 = el.empresa.value.trim();
     const r = await fetch('https://www.wixapis.com/form-submission-service/v4/submissions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: token },
-      body: JSON.stringify({
-        submission: {
-          formId,
-          submissions: {
-            nome: el.nome.value.trim(),
-            empresa: el.empresa.value.trim(),
-            email: el.email.value.trim(),
-            telefone: phoneE164(el.telefone.value),
-            interesse: el.interesse.value,
-            mensagem: el.mensagem.value.trim(),
-            consentimento_lgpd: el.lgpd.checked,
-          },
-        },
-      }),
+      body: JSON.stringify({ submission: { formId, submissions } }),
     });
     if (!r.ok) throw new Error('submission ' + r.status);
   }
